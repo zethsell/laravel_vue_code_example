@@ -16,7 +16,7 @@ describe('UserListService', function () {
         $sut->execute();
     });
 
-    test('should return a list of property areas', function () {
+    test('should return a list', function () {
         $repository = Mockery::mock(UserRepository::class);
         $repository->shouldReceive('list')->once()->andReturn([1, 2, 3]);
         $sut = new UserListService($repository);
