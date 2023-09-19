@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\DB;
 
 
-trait ActionStore
+trait ActionSave
 {
     public function make(array $attributes): BaseModel|Authenticatable
     {
@@ -52,6 +52,16 @@ trait ActionStore
             $attributes = $this->onBeforeStore($attributes);
             $resource = $this->makeConditional($conditional, $attributes);
             $resource = $this->save($resource);
+            $resource->refresh();
+            return $resource;
+        });
+    }
+
+    public function updateResource(BaseModel $resource, array $attributes): BaseModel|Authenticatable
+    {
+        return DB::transaction(function () use ($resource, $attributes) {
+            $resource->fill($attributes);
+            $resource->save();
             $resource->refresh();
             return $resource;
         });

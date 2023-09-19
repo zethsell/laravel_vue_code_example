@@ -56,9 +56,4 @@ trait ActionDelete
     {
         return $resource;
     }
-
-    public function onAfterDelete(BaseModel $resource): BaseModel
-    {
-        return $resource;
-    }
 }
