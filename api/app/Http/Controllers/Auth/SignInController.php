@@ -21,7 +21,7 @@ class SignInController extends Controller
             $result = $this->service->execute(new SignInDTO($request->validated()));
             return HttpResponse::ok($result);
         } catch (\Throwable $error) {
-            return HttpResponse::badRequest($error);
+            return HttpResponse::unauthorized($error);
         }
     }
 }

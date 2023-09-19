@@ -23,7 +23,7 @@ export const useLoginStore = defineStore({
                     await this.redirectLoggedUser()
                 })
                 .catch(async (err) => {
-                    await alertError('Error', err.message ?? err.response.data.error.message)
+                    await alertError('Error', err.response.data?.error?.message ?? err.message)
                 })
         },
         async signUpUser(user: UserRegister) {
@@ -34,7 +34,8 @@ export const useLoginStore = defineStore({
                     await router.push({name: 'login'})
                 })
                 .catch(async (err) => {
-                    await alertError('Error', err.message ?? err.response.data.error.message)
+                    console.log(err.response.data.error.message)
+                    await alertError('Error', err.response.data.error?.message ?? err.message)
                 })
         },
         async redirectLoggedUser() {
@@ -45,7 +46,7 @@ export const useLoginStore = defineStore({
         },
         async signOutUser() {
             this.$reset()
-            await router.push({name: 'home'})
+            await router.push('/sign-in')
         },
         async loggedUser() {
             if (this.isLoggedIn) {

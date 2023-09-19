@@ -3,12 +3,14 @@ import {useLoginStore} from '@/stores/login';
 import {useRouter} from 'vue-router';
 
 const loginStore = useLoginStore()
+const router = useRouter()
 
-async function redirect(to = 'logout') {
-  if (to === 'logout') {
-    await loginStore.signOutUser()
+async function redirect(to?: string) {
+  if (to) {
+    await router.push({name: to})
+    return
   }
-  await useRouter().push({name: to})
+  await loginStore.signOutUser()
 }
 </script>
 <template>
