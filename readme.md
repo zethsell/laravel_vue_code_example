@@ -17,6 +17,12 @@ Abrir o terminal dentro do diretorio Backend encontrado no diretório raiz e exe
 - php artisan serve (Irá subir o servidor padrão do PHP com a porta 8000), importante manter na 8000, pois é a porta
   configurada no proxy do frontend
 
+Tests:
+
+- Foi criado um novo schema no banco chamado testing para isso foi criar um .env.testing para o php unit
+- Estou utilizando a lib PEST
+- para rodar o watch é necessario instalar o fswatch: https://github.com/emcrisostomo/fswatch#getting-fswatch
+
 #Instalação e inicialização do Frontend
 
 Ferramentas utilizadas:
