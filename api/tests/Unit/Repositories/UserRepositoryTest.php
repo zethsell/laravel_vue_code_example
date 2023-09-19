@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Infra\Repositoties\Booking\User;
+namespace Tests\Unit\Repositories;
 
 use App\Models\User;
 use App\Repositories\UserRepository;
