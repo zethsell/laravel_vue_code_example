@@ -2,11 +2,9 @@
 
 namespace App\Repositories\Concerns;
 
-use App\Models\BaseModel;
-
 trait ActionShow
 {
-    public function showByConditions($conditions = []): ?BaseModel
+    public function showByConditions($conditions = [])
     {
         return $this->model->where(function ($query) use ($conditions) {
             foreach ($conditions as $key => $condition) {
