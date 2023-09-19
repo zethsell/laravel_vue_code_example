@@ -56,4 +56,13 @@ trait ActionDelete
     {
         return $resource;
     }
+
+    public function deleteByConditions(array $conditions): void
+    {
+        $this->getModel()->where(function ($query) use ($conditions) {
+            foreach ($conditions as $key => $condition) {
+                $query->where($key, $condition);
+            }
+        })->delete();
+    }
 }

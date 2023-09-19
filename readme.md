@@ -32,3 +32,12 @@ Abrir o terminal dentro do diretorio Frontend encontrado no diretório raiz e ex
 - yarn
 - yarn dev
 
+Utilização básica:
+
+- Signup
+- Login
+- Criar uma Tax
+- Criar um Product Type
+- Criar um Product
+- Fazer p lançamento em PDV
+- conferir no menu Sells

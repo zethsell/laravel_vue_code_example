@@ -12,6 +12,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @method static whereId(int $id)
  * @method static whereEmail(mixed $email)
  * @method static orderBy(string $string, string $string1)
+ * @method static truncate()
  */
 class User extends Authenticatable
 {
@@ -23,6 +24,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'id',
         'name',
         'email',
         'password',
